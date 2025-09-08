@@ -7,7 +7,9 @@ import adminRoutes from "./routes/admin.route.js";
 import hotelRoutes from "./routes/Hotel.route.js";
 import userRoutes from "./routes/User.route.js";
 import experienceRoutes from "./routes/experience.route.js";
+import packagesRoutes from "./routes/packages.route.js";
 import packageRoutes from "./routes/package.route.js";
+
 import bookingRoutes from "./routes/booking.route.js";
 
 dotenv.config({path:"./secretkey.env"});
@@ -30,6 +32,8 @@ app.use("/api/admin",adminRoutes);
 //app.use("/api/hotel",hotelRoutes);
 app.use("/api/User",userRoutes);
 app.use("/api/package",packageRoutes);
+app.use("/api/packages",packagesRoutes);
+
 app.use("/api/experience",experienceRoutes);
 app.use("/api/booking",bookingRoutes);
 

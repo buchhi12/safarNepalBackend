@@ -5,7 +5,8 @@ import {
   getBookingById,
   updateBooking,
   deleteBooking,
-} from "../controllers/booking.controller.js";
+  getUserBookings
+ } from "../controllers/booking.controller.js";
 
 const router = express.Router();
 
@@ -15,6 +16,8 @@ router.post("/", createBooking);
 // GET - All Bookings
 router.get("/", getBookings);
 
+//get all user bookings
+router.get("/",getUserBookings);
 // GET - Single Booking by ID
 router.get("/:id", getBookingById);
 
