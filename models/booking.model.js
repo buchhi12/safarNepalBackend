@@ -23,6 +23,18 @@ const bookingSchema = new mongoose.Schema(
     }
     ,
     user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+    ,
+   
+   package: { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Package", 
+      required: true 
+    },
+    packageName: {
+      type: String,
+      required: true
+    },
+    createdAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
 );

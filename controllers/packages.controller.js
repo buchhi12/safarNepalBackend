@@ -9,7 +9,7 @@ export const createPackage = async (req, res) => {
 
     const newPackage = new Package({
       ...req.body,
-      createdBy: req.user.id,
+      createdBy: req.user._id,
     });
 
     await newPackage.save();

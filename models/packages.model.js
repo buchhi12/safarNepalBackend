@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const packageSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
-  image:{type:String,required:true},
+  image:{type:String,required:false},
 
   itinerary: { type: [String], required: true },
   famousPlaces:{type:[String],required:true},
@@ -12,7 +12,7 @@ const packageSchema = new mongoose.Schema({
   includes: { type: [String], required: true },
   excludes: { type: [String], required: true },
   price: { type: Number, required: true },
-  image: { type: String, required: true },
+  
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 }, { timestamps: true });
 

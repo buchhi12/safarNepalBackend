@@ -1,29 +1,30 @@
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 
 export function auth(requiredRole) {
   return (req, res, next) => {
-    //check token
-    const token =
-      req.header("Authorization")?.replace("Bearer ", "") || req.cookies?.token;
-
+    const token = req.header("Authorization")?.replace("Bearer ", "");
     if (!token) {
       return res.status(401).json({ message: "No token, unauthorized" });
     }
-//if token is verified it further check role
+
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      req.user = decoded;
+      
+      // 🔑 Normalize user object
+      req.user = {
+        _id: decoded._id || decoded.id,  // always have _id
+        role: decoded.role || "user"
+      };
 
       if (requiredRole) {
         const roles = Array.isArray(requiredRole) ? requiredRole : [requiredRole];
-        if (!roles.includes(decoded.role)) {
+        if (!roles.includes(req.user.role)) {
           return res.status(403).json({ message: "Forbidden: Insufficient role" });
         }
       }
 
       next();
     } catch (err) {
-        //incase token is expired
       if (err.name === "TokenExpiredError") {
         return res.status(401).json({ message: "Token expired" });
       }
