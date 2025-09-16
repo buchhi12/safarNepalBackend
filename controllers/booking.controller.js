@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Booking from "../models/booking.model.js";
 import Package from "../models/packages.model.js";
 
-export const createBookingForPackage = async (req, res) => {
+export const createBooking = async (req, res) => {
   try {
     const { packageId } = req.params;
     const { name, email, phone, country } = req.body;
