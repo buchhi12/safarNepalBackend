@@ -7,7 +7,7 @@ const packageSchema = new mongoose.Schema({
 
   itinerary: { type: [String], required: true },
   famousPlaces:{type:[String],required:true},
-  treekkingDestinations:{type:[String],required:true},
+  trekkingDestinations:{type:[String],required:true},
   activities: { type: [String], required: true },
   includes: { type: [String], required: true },
   excludes: { type: [String], required: true },

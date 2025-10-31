@@ -6,6 +6,7 @@ export const getPackages = async (req, res) => {
     const packages = await Package.find({}, "name description image"); // select only necessary fields
     res.status(200).json(packages);
   } catch (error) {
+     console.error("Get packages error:", error);
     res.status(500).json({ message: "Error fetching packages", error });
   }
 };

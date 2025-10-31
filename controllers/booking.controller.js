@@ -53,6 +53,7 @@ export const getBookings = async (req, res) => {
 
     const { page = 1, limit = 20 } = req.query;
     const bookings = await Booking.find()
+    
       .skip((page - 1) * limit)
       .limit(Number(limit));
 

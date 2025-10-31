@@ -17,7 +17,7 @@ router.post("/:packageId",auth(), createBooking);
 router.get("/",auth(), getBookings);
 
 //get all user bookings
-router.get("/",auth(), getUserBookings);
+router.get("/user",auth(), getUserBookings);
 
 // GET - Single Booking by ID
 router.get("/:id",auth(), getBookingById);

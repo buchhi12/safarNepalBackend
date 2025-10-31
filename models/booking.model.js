@@ -14,7 +14,7 @@ const bookingSchema = new mongoose.Schema(
       lowercase: true
     },
     phone: {
-      type: String,
+      type: Number,
       required: true
     },
     country: {
